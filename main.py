@@ -18,13 +18,16 @@ def get_color(elevation):
 
 map = folium.Map(location =[38.58, -99.09], zoom_start = 4,
 tiles = "Stamen Terrain")
-fg = folium.FeatureGroup(name="North America Volcanoes")
+fg = folium.FeatureGroup(name="My Map")
 
 for lt, ln, nm, lc, elv in zip(lat, lon, name, loc, elev):
     pos = [lt, ln]
     msg = "Name: {}\nLocation: {}\nElevation: {} ".format(nm, lc, elv)
     fg.add_child(folium.CircleMarker(location =pos, popup =msg, 
     fill_color=get_color(elv), color='gray', fill_opacity = 0.7, radius = 6))
+
+fg.add_child(folium.GeoJson(data =(open('world.json', 'r', 
+encoding = 'utf-8-sig').read())))
 
 map.add_child(fg)
 map.save("map1.html")
