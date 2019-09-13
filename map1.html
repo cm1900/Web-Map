@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_dcabcf0daeab4edfbddd98a45cb06b45 {
+                #map_750cff84084b4409aaf2291343013a38 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,13 +35,13 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_dcabcf0daeab4edfbddd98a45cb06b45" ></div>
+            <div class="folium-map" id="map_750cff84084b4409aaf2291343013a38" ></div>
         
 </body>
 <script>    
     
-            var map_dcabcf0daeab4edfbddd98a45cb06b45 = L.map(
-                "map_dcabcf0daeab4edfbddd98a45cb06b45",
+            var map_750cff84084b4409aaf2291343013a38 = L.map(
+                "map_750cff84084b4409aaf2291343013a38",
                 {
                     center: [-10.0, 28.0],
                     crs: L.CRS.EPSG3857,
@@ -55,9 +55,28 @@
 
         
     
-            var tile_layer_a10adb13f1aa48cfb8925c3b50bd3cc9 = L.tileLayer(
+            var tile_layer_6c27b4d8a3d24e9ab033de35dfba1e62 = L.tileLayer(
                 "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
                 {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_dcabcf0daeab4edfbddd98a45cb06b45);
+            ).addTo(map_750cff84084b4409aaf2291343013a38);
         
+    
+            var marker_b8f1fb37461649508c85cc71fb30d257 = L.marker(
+                [-3.0, 29.0],
+                {}
+            ).addTo(map_750cff84084b4409aaf2291343013a38);
+        
+    
+        var popup_35f5166a81a4409d98770cd3a8a4f13e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_866265ca3eec4313a312c1e3ed4eccf0 = $(`<div id="html_866265ca3eec4313a312c1e3ed4eccf0" style="width: 100.0%; height: 100.0%;">Danger Zone</div>`)[0];
+            popup_35f5166a81a4409d98770cd3a8a4f13e.setContent(html_866265ca3eec4313a312c1e3ed4eccf0);
+        
+
+        marker_b8f1fb37461649508c85cc71fb30d257.bindPopup(popup_35f5166a81a4409d98770cd3a8a4f13e)
+        ;
+
+        
+    
 </script>
