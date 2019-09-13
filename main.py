@@ -18,19 +18,22 @@ def get_color(elevation):
 
 map = folium.Map(location =[8, 10], zoom_start = 2,
 tiles = "Stamen Terrain")
-fg = folium.FeatureGroup(name="My Map")
+fgVolcanoes = folium.FeatureGroup(name="North America Volcanoes")
+fgPopulation = folium.FeatureGroup(name="Populations")
 
 for lt, ln, nm, lc, elv in zip(lat, lon, name, loc, elev):
     pos = [lt, ln]
     msg = "Name: {}\nLocation: {}\nElevation: {} ".format(nm, lc, elv)
-    fg.add_child(folium.CircleMarker(location =pos, popup =msg, 
+    fgVolcanoes.add_child(folium.CircleMarker(location =pos, popup =msg, 
     fill_color=get_color(elv), color='gray', fill_opacity = 0.7, radius = 6))
 
-fg.add_child(folium.GeoJson(data =open('data/world.json', 'r', 
+fgPopulation.add_child(folium.GeoJson(data =open('data/world.json', 'r', 
 encoding = 'utf-8-sig').read(),
 style_function=lambda x: {'fillColor':'green' if x['properties']['POP2005'] < 20000000
 else 'blue' if 20000000 <= x['properties']['POP2005']<50000000
 else 'red'}))
 
-map.add_child(fg)
+map.add_child(fgVolcanoes)
+map.add_child(fgPopulation)
+map.add_child(folium.LayerControl())
 map.save("map1.html")
