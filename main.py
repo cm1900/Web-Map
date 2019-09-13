@@ -16,13 +16,15 @@ def get_color(elevation):
     else:
         return 'red'
 
-map = folium.Map(location =[38.58, -99.09], zoom_start = 4, tiles = "Stamen Terrain")
-fg = folium.FeatureGroup(name="My Map")
+map = folium.Map(location =[38.58, -99.09], zoom_start = 4,
+tiles = "Stamen Terrain")
+fg = folium.FeatureGroup(name="North America Volcanoes")
 
 for lt, ln, nm, lc, elv in zip(lat, lon, name, loc, elev):
     pos = [lt, ln]
     msg = "Name: {}\nLocation: {}\nElevation: {} ".format(nm, lc, elv)
-    fg.add_child(folium.Marker(location =pos, popup =msg, icon =folium.Icon(color=get_color(elv))))
+    fg.add_child(folium.CircleMarker(location =pos, popup =msg, 
+    fill_color=get_color(elv), color='gray', fill_opacity = 0.7, radius = 6))
 
 map.add_child(fg)
 map.save("map1.html")
