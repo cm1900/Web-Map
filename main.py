@@ -1,12 +1,12 @@
 import folium
 import pandas
 
-data = pandas.read_csv("data/volcanoes.txt")
+data = pandas.read_excel("data/volcanoes.xlsx")
 lat = list(data['LAT'])
-lon = list(data['LON'])
-name = list(data['NAME'])
+lon = list(data['LONG'])
+name = list(data['VOLCANO'])
 loc = list(data['LOCATION'])
-elev = list(data['ELEV'])
+elev = list(data['ELEV_M'])
 
 def get_color(elevation):
     if elevation < 1500:
@@ -18,7 +18,7 @@ def get_color(elevation):
 
 map = folium.Map(location =[8, 10], zoom_start = 2,
 tiles = "Stamen Terrain")
-fgVolcanoes = folium.FeatureGroup(name="North America Volcanoes")
+fgVolcanoes = folium.FeatureGroup(name="World Volcanoes")
 fgPopulation = folium.FeatureGroup(name="Populations")
 
 for lt, ln, nm, lc, elv in zip(lat, lon, name, loc, elev):
